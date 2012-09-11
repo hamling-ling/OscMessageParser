@@ -1,8 +1,9 @@
 #ifndef _OSCCOMMON_H_
 #define _OSCCOMMON_H_
 
-#include <cstdint>
-#include <memory>
+#include <stdio.h>
+#include <stdint.h>
+#include <string.h>
 
 #define BUF_SIZE	32
 #define MAX_PARAM	8
@@ -48,5 +49,13 @@ template< class T > void SafeDeleteArray( T*& pVal )
 }
 
 bool sys_is_little_endian();
+
+template <class T>
+void swap(T& x, T& y) {
+	T temp = x;
+	x = y;
+	y = temp;
+}
+
 
 #endif // _OSCCOMMON_H_

@@ -1,16 +1,14 @@
 
 #include "OscMessageParser.h"
 
-using namespace std::tr1;
-
 namespace OscMessageParser {
 
 #pragma region public
 
-	shared_ptr<IOscMessageParser> IOscMessageParser::Create() {
+	IOscMessageParser* IOscMessageParser::Create() {
 		OscMessageParser *p = new OscMessageParser();
 		IOscMessageParser* ip = static_cast<IOscMessageParser*>(p);
-		return shared_ptr<IOscMessageParser>(ip);
+		return ip;
 	}
 
 	OscMessageParser::OscMessageParser() {

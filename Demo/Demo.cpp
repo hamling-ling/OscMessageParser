@@ -9,11 +9,7 @@ using namespace std;
 using namespace OscMessageParser;
 using namespace std::tr1;
 
-void TestMessageParser(char* data, int size) {
-
-	// create parser
-	shared_ptr<IOscMessageParser> psr = IOscMessageParser::Create();
-
+void TestMessageParser(char* data, int size, IOscMessageParser *psr) {
 	// message will be stored here
 	OscMessage msg;
 
@@ -34,20 +30,22 @@ void TestMessageParser(char* data, int size) {
 
 int _tmain(int argc, _TCHAR* argv[])
 {
+	// create parser
+	IOscMessageParser *p = IOscMessageParser::Create();
+
 	char data1[] = {
 		0x2f, 0x6f, 0x73, 0x63, 0x2f, 0x62, 0x75, 0x74,
 		0x74, 0x6f, 0x6e, 0x32, 0x00, 0x00, 0x00, 0x00,
 		0x2c, 0x69, 0x00, 0x00, 0x00, 0x00, 0x00, 0x01
 	};
-	TestMessageParser(data1, sizeof(data1));
-
+	TestMessageParser(data1, sizeof(data1), p);
 
 	char data2[] = {
 		0x2f, 0x6f, 0x73, 0x63, 0x2f, 0x62, 0x00, 0x00,
 		0x2c, 0x69, 0x69, 0x00, 0x00, 0x00, 0x00, 0x01,
 		0x00, 0x00, 0x00, 0x02
 	};
-	TestMessageParser(data2, sizeof(data2));
+	TestMessageParser(data2, sizeof(data2), p);
 
 	return 0;
 }
