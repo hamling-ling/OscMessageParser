@@ -15,7 +15,7 @@ void TestMessageParser(char* data, int size, IOscMessageParser *psr) {
 
 	// parse data
 	for(int i = 0; i < size; i++) {
-		if(psr->Push(data[i], i)) {
+		if(psr->Push(data[i])) {
 			psr->Read(&msg);
 			break;
 		}

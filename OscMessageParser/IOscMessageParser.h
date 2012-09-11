@@ -9,7 +9,7 @@ namespace OscMessageParser {
 	public:
 		IOscMessageParser(){}
 		virtual ~IOscMessageParser(){};
-		virtual bool Push(char c, int offset) = 0;
+		virtual bool Push(char c) = 0;
 		virtual void Read(OscMessage *msg) = 0;
 		static IOscMessageParser* Create();
 	};

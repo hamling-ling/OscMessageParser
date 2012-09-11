@@ -23,7 +23,7 @@ namespace OscMessageParser {
 
 		OscMessageParser();
 		virtual ~OscMessageParser();
-		bool Push(char c, int offset);
+		bool Push(char c);
 		void Read(OscMessage *msg);
 
 	private:
@@ -34,6 +34,7 @@ namespace OscMessageParser {
 		AddressParser _addPsr;
 		TypetagParser _tagPsr;
 		ParameterParser _prmPsr;
+		int _offset;
 
 		bool FuncForStateIdle(char c, int offset);
 		bool FuncForStateAddress(char c, int offset);

@@ -22,8 +22,8 @@ namespace OscMessageParser {
 
 	OscMessageParser::~OscMessageParser() {}
 
-	bool OscMessageParser::Push(char c, int offset) {
-		bool result = (this->*(_stateMatrix[_state]))(c,offset);
+	bool OscMessageParser::Push(char c) {
+		bool result = (this->*(_stateMatrix[_state]))(c,_offset++);
 		return result;
 	}
 
@@ -109,6 +109,8 @@ namespace OscMessageParser {
 		memset(&_msg, 0, sizeof(_msg));
 
 		_state = OSC_MESSAGE_PARSER_STATE_IDL;
+
+		_offset = 0;
 	}
 
 #pragma endregion private
