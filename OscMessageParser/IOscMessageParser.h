@@ -1,7 +1,7 @@
 #ifndef _IOSCMESSAGEPARSER_H_
 #define _IOSCMESSAGEPARSER_H_
 
-#include "source/OscCommon.h"
+#include "utility/OscCommon.h"
 
 namespace OscMessageParser {
 
