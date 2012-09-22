@@ -76,6 +76,7 @@ namespace OscMessageParser {
 		}
 		else if (res == TYPETAG_PARSER_RESPONSE_NON) {
 			_state = OSC_MESSAGE_PARSER_STATE_SRD;
+			return true;
 		}
 		else {
 			Flush();
