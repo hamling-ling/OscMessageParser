@@ -41,6 +41,9 @@ namespace OscMessageParser {
 		if(res == ADDRESS_PARSER_RESPONSE_RCV) {
 			_state = OSC_MESSAGE_PARSER_STATE_ADR;
 		}
+		else if(res == ADDRESS_PARSER_RESPONSE_ERR) {
+			Flush();
+		}
 		return false;
 	}
 

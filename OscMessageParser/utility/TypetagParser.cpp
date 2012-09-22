@@ -25,8 +25,6 @@ namespace OscMessageParser {
 		if( ',' == c) {
 			_state = TYPETAG_PARSER_STATE_TAG;
 		}
-		else if( '\0' == c) {
-		}
 		else {
 			_state = TYPETAG_PARSER_STATE_ERR;
 			result = TYPETAG_PARSER_RESPONSE_ERR;

@@ -29,8 +29,8 @@ tag
 |           |s0:idle    |s1:tag     |s2:padding |s3:done    |:err   |
 |,          |s1         |err        |err        |s1         |s1     |
 |i/f/s/b    |err        |-          |err        |err        |-      |
-|\0         |-          |s2         |-          |-          |-      |
-|\0/4       |-          |s3         |s3         |-          |-      |
+|\0         |err        |s2         |-          |-          |-      |
+|\0/4       |err        |s3         |s3         |-          |-      |
 |ascii      |err        |err        |err        |err        |-      |
 |read       |s0         |s0         |s0         |s0         |s0     |
 |flush      |s0         |s0         |s0         |s0         |s0     |

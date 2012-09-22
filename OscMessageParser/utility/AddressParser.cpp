@@ -27,11 +27,9 @@ namespace OscMessageParser {
 			_state = ADDRESS_PARSER_STATE_NSL;
 			PushBuf(c);
 		}
-		else if( '\0' == c){
-			_state = ADDRESS_PARSER_STATE_ERR;
-		}
 		else {
-			_state = ADDRESS_PARSER_STATE_STR;
+			_state = ADDRESS_PARSER_STATE_ERR;
+			return ADDRESS_PARSER_RESPONSE_ERR;
 		}
 
 		return ADDRESS_PARSER_RESPONSE_RCV;
@@ -76,11 +74,7 @@ namespace OscMessageParser {
 
 	int AddressParser::FuncForStatePadding(char c, int offset) {
 		int result = ADDRESS_PARSER_RESPONSE_RCV;
-		if('/' == c) {
-			_state = ADDRESS_PARSER_STATE_ERR;
-			result = ADDRESS_PARSER_RESPONSE_ERR;
-		}
-		else if( '\0' == c){
+		if( '\0' == c){
 			PushBuf(c);
 			if((offset+1)%4 == 0) {
 				_state = ADDRESS_PARSER_STATE_DON;
@@ -89,6 +83,10 @@ namespace OscMessageParser {
 			else {
 				_state = ADDRESS_PARSER_STATE_PAD;
 			}
+		}
+		else {
+			_state = ADDRESS_PARSER_STATE_ERR;
+			result = ADDRESS_PARSER_RESPONSE_ERR;
 		}
 
 		return result;
