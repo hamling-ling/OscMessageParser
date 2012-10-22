@@ -3,7 +3,7 @@ OscMessageParser
 
 Simple C++ implementation of OSC message parsing functionality.
 
-how to use
+Here is how to use in Arduino
 <pre><code>
 #include <IOscMessageParser.h>
 
